@@ -19,5 +19,5 @@ object MarsApi{
 interface MapsApiService{
 
     @GET("photos")
-    fun getPhotos() : String
+    suspend fun getPhotos() : String
 }
