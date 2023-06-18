@@ -26,5 +26,5 @@ object MarsApi{
 interface MapsApiService{
 
     @GET("photos")
-    suspend fun getPhotos() : String
+    suspend fun getPhotos() : List<MarsPhoto>
 }
