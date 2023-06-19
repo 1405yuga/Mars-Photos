@@ -57,11 +57,14 @@ class OverviewViewModel : ViewModel() {
     private fun getMarsPhotos() {
         //launch coroutine scope
         viewModelScope.launch {
+            _status.value = MarsApiStatus.LOADING
             try {
                 _photos.value = MarsApi.retrofitService.getPhotos()
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR
+                //setting empty list
+                _photos.value = listOf()
             }
 
         }
